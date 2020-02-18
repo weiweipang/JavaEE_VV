@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf</title>
+</head>
+<body>
+
+
+<h3>Thymeleaf helloword</h3>
+<hr/>
+<!--th:text对特殊字符转义-->
+th:text对特殊字符转义测试
+<h3 th:text="${hello}">1111</h3>
+<hr/>
+th:utext不对特殊字符进行转义，交给浏览器解析测试
+<!--th:utext不对特殊字符进行转义，交给浏览器解析-->
+<div th:utext="${hello1}"></div>
+<hr/>
+th:each遍历测试
+<!--th:each遍历-->
+<ul th:each="user:${users}">
+    <li th:text="${user}"></li>
+</ul>
+</body>
+</html>
