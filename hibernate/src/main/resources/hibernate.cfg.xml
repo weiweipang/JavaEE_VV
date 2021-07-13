@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+          <session-factory>
+
+          <!--配置数据库JDBC驱动-->
+
+          <property name="hibernate.connection.url">jdbc:sqlserver://127.0.0.1:1433;DatabaseName=testHibernate</property>
+
+           <!--配置数据库连接URL-->s
+
+          <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+
+           <!--配置数据库用户名-->
+
+          <property name="hibernate.connection.username">sa</property>
+
+           <!--配置数据库密码-->
+
+          <property name="hibernate.connection.password">root</property>
+
+          <!--输出运行时生成的SQL语句-->
+
+          <property name="hibernate.show_sql">true</property>
+
+          <!--格式化sql-->
+
+          <property name="hibernate.format_sql">true</property>
+
+           <!--配置数据库方言-->
+
+          <property name="hibernate.dialect">org.hibernate.dialect.SQLServer2012Dialect</property>
+
+
+
+          <!--hibernate帮忙创建表 update：如果已有表则更新，没有则创建-->
+          <property name="hibernate.hbm2ddl.auto">update</property>
+
+           <!--列出映射文件-->
+
+          <!--<mapping resource="userMapper.xml"></mapping>-->
+          <!--<mapping resource="student.xml"></mapping>-->
+          <!--<mapping resource="teacher.xml"></mapping>-->
+          <!--<mapping resource="customer.xml"></mapping>-->
+          <!--<mapping resource="role.xml"></mapping>-->
+
+
+          <!--<mapping class="com.hibernate.day02.JpaStudent"/>-->
+          <!--<mapping class="com.hibernate.day02.JpaTeacher"/>-->
+          <mapping class="com.hibernate.day02.JpaCustomer"/>
+          <mapping class="com.hibernate.day02.JpaRole"/>
+
+          </session-factory>
+
+      </hibernate-configuration>

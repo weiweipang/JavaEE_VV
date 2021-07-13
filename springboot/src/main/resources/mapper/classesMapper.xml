@@ -1,0 +1,23 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.vv.mybatisplus.mapper.ClassesMapper">
+
+    <!--用户角色：多对一（多个课程属于一个用户）-->
+    <resultMap id="class" type="com.vv.mybatisplus.entity.Classes">
+        <result property="id" column="id"/>
+        <result property="c_name" column="cname"/>
+        <result property="u_id" column="uid"/>
+        <association property="user" javaType="com.vv.mybatisplus.entity.User">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+            <result property="age" column="age"/>
+        </association>
+    </resultMap>
+    <select id="getUserByClass" resultMap="class">
+        select * from t_class c left join t_user u on c.uid=u.id where c.cname=#{classname}
+    </select>
+
+
+</mapper>

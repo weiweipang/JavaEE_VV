@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.hibernate.day01.Customer" table="t_customer">
+        <id name="c_id" column="c_id">
+            <generator class="uuid"></generator>
+        </id>
+        <property name="c_name" column="c_name"></property>
+        <property name="password" column="password"></property>
+        <!--table第三张表名-->
+        <set name="roleSet" table="customer_role" cascade="all" >
+            <!--在第三张表中的id-->
+            <key column="c_id"></key>
+            <!--
+                column在第三张表中关联对象的id
+                class关联对象的类型（必须）
+            -->
+            <many-to-many column="r_id" class="com.hibernate.day01.Role"></many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

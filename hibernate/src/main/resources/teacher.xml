@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.hibernate.day01.Teacher" table="jpaTeacher">
+        <id name="t_id" column="t_id">
+            <!--常用identity native uuid-->
+            <generator class="uuid"></generator>
+        </id>
+        <property name="t_name" column="t_name"></property>
+        <property name="t_age" column="t_age"></property>
+
+        <!--单向一对多-->
+        <set name="jpaStudents" cascade="save-update,delete">
+            <!--再多的一方生成的外键关联一的一方的主键-->
+            <key column="tt_id"></key>
+            <!--多的一方的类型-->
+            <one-to-many class="com.hibernate.day01.Student" />
+        </set>
+
+    </class>
+</hibernate-mapping>

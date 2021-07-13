@@ -35,7 +35,7 @@ public class EsTest {
         indexRequest.id("1");
         //最常用的方式：直接传json过去
         String jsonString = "{" +
-                "\"user\":\"kimchy\"," +
+                "\"userMapper\":\"kimchy\"," +
                 "\"postDate\":\"2013-01-30\"," +
                 "\"message\":\"trying out Elasticsearch\"" +
                 "}";
